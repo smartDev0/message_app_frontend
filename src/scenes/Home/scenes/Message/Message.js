@@ -9,31 +9,6 @@ import fake_user from "../../../../assets/imgs/avatar-circle-tale.svg";
 import DateTimePicker from 'react-datetime-picker';
 import moment from 'moment';
 
-const MODAL_STYLES = {
-    overlay: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(255, 255, 255, .5)'
-    },
-    content: {
-        position: 'absolute',
-        top: '40px',
-        left: '40px',
-        right: '40px',
-        height: '150px',
-        border: '1px solid #ccc',
-        background: '#fff',
-        overflow: 'show',
-        WebkitOverflowScrolling: 'touch',
-        borderRadius: '4px',
-        outline: 'none',
-        padding: '20px'
-
-    }
-};
 class Message extends React.Component {
     constructor(props) {
         super(props);
@@ -45,9 +20,6 @@ class Message extends React.Component {
             value: null,
             messages: {},
             record: [
-                // {
-                //     date: 'Thu Oct 08 2020 00:00:00 GMT+0800 (Taipei Standard Time)',
-                //     message:'aaa'}
             ],
             currentRecord: [],
             id:''
@@ -176,7 +148,7 @@ class Message extends React.Component {
                     show={this.state.createModalActive}
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
-                    style={MODAL_STYLES}
+                    // style={MODAL_STYLES}
                     onHide={() => { this.handleClose() }}>
                     <Modal.Header>
                         <Modal.Title>New Message</Modal.Title>
@@ -207,7 +179,6 @@ class Message extends React.Component {
                     show={this.state.editModalActive}
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
-                    style={MODAL_STYLES}
                     onHide={() => { this.handleEditClose() }}>
                     <Modal.Header>
                         <Modal.Title>Edit Message</Modal.Title>
