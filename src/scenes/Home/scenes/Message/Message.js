@@ -51,7 +51,7 @@ class Message extends React.Component {
        } else if (this.state.value === null) {
            NotificationManager.warning('Please add date', '', 2000);
            return;
-       }  else {
+       } else {
             const data = {
                 date: this.state.value,
                 message: this.state.message
@@ -133,6 +133,14 @@ class Message extends React.Component {
         localStorage.setItem('messages', JSON.stringify(filterData));
         NotificationManager.success('Your message is deleted successfully.', '', 2000);
     }
+    onChangeText = (e) => { 
+        if (e.target.value.length > 280) {
+            NotificationManager.warning('Message length should be 280 letters', '', 2000);
+            return;
+        } else {
+            this.setState({ message: e.target.value });
+        }
+    }
     render() {
         const { record } = this.state;
         return (
@@ -206,7 +214,7 @@ class Message extends React.Component {
                                 <img src={fake_user} alt="" className={"avatar"} />
                             </div>
                             <div className="col-md-10 col-10">
-                                <Form.Control as="textarea" placeholder="Message..." rows="3" onChange={(e) => { this.setState({ message: e.target.value }) }} value={this.state.message ? this.state.message : ''} />
+                                <Form.Control as="textarea" placeholder="Message..." rows="3" onChange={(e) => { this.onChangeText(e)}} value={this.state.message ? this.state.message : ''} />
                             </div>
                         </div>
                     </Modal.Body>
@@ -239,7 +247,7 @@ class Message extends React.Component {
                                 <img src={fake_user} alt="" className={"avatar"} />
                             </div>
                             <div className="col-md-10 col-10">
-                                <Form.Control as="textarea" placeholder="Message..." rows="3" onChange={(e) => { this.setState({ message: e.target.value }) }} value={this.state.message ? this.state.message : ''} />
+                                <Form.Control as="textarea" placeholder="Message..." rows="3" onChange={(e) => { this.onChangeText(e) }} value={this.state.message ? this.state.message : ''} />
                             </div>
                         </div>
 
