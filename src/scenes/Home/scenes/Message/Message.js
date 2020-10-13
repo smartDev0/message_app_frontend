@@ -104,8 +104,7 @@ class Message extends React.Component {
                         <h6 style={{ margin: '0px 0px 0px 20px' }}>Your Message List</h6>
                         <div className={"action-area"}>
                             <div className="col-auto active ">
-                                <div className={"dropdown-toggle d-flex align-items-center"} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {/* <i className="fa fa-arrow-down" aria-hidden="true"></i> */}
+                                <div className={"dropdown-toggle d-flex align-items-center"} >
                                     <IoIosArrowDown className="arrow-size"/>
                                 </div>
                             </div>
