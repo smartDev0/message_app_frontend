@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import SideBar from './components/Sidebar/Sidebar';
 /** Import components */
 import TopNav from './components/TopNav/TopNav';
+import Dashboard from './scenes/Dashboard/Dashboard';
 import Message from './scenes/Message/Message';
 
 class Home extends React.Component {
@@ -30,7 +31,8 @@ class Home extends React.Component {
                     <TopNav title={title} />
                     <div className="container-content">
                          <Switch>
-                            <Route path="/messages" exact render={props => <Message {...props} title="Message"/>} />
+                            <Route path="/messages" exact render={props => <Message {...props} title="Message" />} />
+                            <Route path="/home" exact render={props => <Dashboard {...props} title="Message" />} />
                         </Switch>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-notifications/lib/notifications.css';
 import App from './scenes/App';
 // import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
@@ -9,6 +10,7 @@ import { Provider } from 'react-redux';
 // Import {history} and store
 import { store, history } from './store';
 import { Router } from 'react-router-dom';
+import { NotificationContainer } from 'react-notifications';
 // const target = document.querySelector('#root');
 
 ReactDOM.render(
@@ -16,6 +18,7 @@ ReactDOM.render(
     <Router history={history}>
       <App />
     </Router>
+    <NotificationContainer />
   </Provider>
   ,
   document.getElementById('root')
