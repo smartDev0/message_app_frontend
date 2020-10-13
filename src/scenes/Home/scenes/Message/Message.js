@@ -9,7 +9,7 @@ import fake_user from "../../../../assets/imgs/avatar-circle-tale.svg";
 import DateTimePicker from 'react-datetime-picker';
 import moment from 'moment';
 import { NotificationManager } from 'react-notifications';
-import { Tooltip, Overlay  } from 'react-bootstrap';
+import ReactTooltip from 'react-tooltip';
 class Message extends React.Component {
     constructor(props) {
         super(props);
@@ -164,8 +164,14 @@ class Message extends React.Component {
                                             </div>
                                         </div>
                                         <div className="col-md-2 col-3 d-v-center">
-                                            <FaRegEdit style={{ fontSize: 22, cursor: "pointer" }} onClick={() => this.onChangeEdit(i)}/>
-                                            <AiOutlineDelete style={{ fontSize: 25, cursor: "pointer" }} onClick={() => this.onChangeDelete(i)}/>
+                                            <FaRegEdit data-tip data-for='edit' style={{ fontSize: 22, cursor: "pointer" }} onClick={() => this.onChangeEdit(i)} />
+                                            <ReactTooltip id='edit' effect='solid'>
+                                                <span>Edit message</span>
+                                            </ReactTooltip>
+                                            <AiOutlineDelete data-tip data-for='delete' style={{ fontSize: 25, cursor: "pointer" }} onClick={() => this.onChangeDelete(i)} />
+                                            <ReactTooltip id='delete' effect='solid'>
+                                                <span>Delete message</span>
+                                            </ReactTooltip>
                                         </div>
                                     </div>
                                 </div>
@@ -178,8 +184,12 @@ class Message extends React.Component {
                     </h4>
                 </div>)}
                 <div className="add-message d-v-center" onClick={() => this.setState({createModalActive:true})}>
-                    <HiOutlinePlus style={{ fontSize: 26,color:"white"}}/>
+                    <HiOutlinePlus style={{ fontSize: 26, color: "white" }} data-tip data-for='sadFace'/>
+                    <ReactTooltip id='sadFace' effect='solid'>
+                        <span>New message</span>
+                    </ReactTooltip>
                 </div>
+
                 {/* create modal */}
                 <Modal
                     show={this.state.createModalActive}
